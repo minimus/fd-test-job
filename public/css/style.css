@@ -78,7 +78,17 @@ a {
 }
 
 @media screen and (max-device-width: 900px) {
+  body {
+    font: 1.9em "Roboto Condensed", Helvetica, Arial, sans-serif;
+  }
+
   #home-component {
     width: 80%;
+  }
+
+  .labeled-input input {
+    margin: 5px 0 0;
+    font: 1em "Roboto Condensed", Helvetica, Arial, sans-serif;
+    padding: 3px;
   }
 }
