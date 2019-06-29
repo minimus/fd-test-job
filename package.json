@@ -13,7 +13,6 @@
     "build": "webpack"
   },
   "dependencies": {
-    "@syncfusion/ej2-react-maps": "^17.1.51",
     "@babel/cli": "^7.4.4",
     "@babel/core": "^7.4.5",
     "@babel/preset-env": "^7.4.5",
@@ -32,7 +31,8 @@
     "cookie-parser": "^1.4.4",
     "express": "^4.17.1",
     "helmet": "^3.18.0",
-    "prop-types": "latest",
+    "npm": "^6.9.2",
+    "prop-types": "^15.7.2",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
     "react-helmet": "^5.2.1",

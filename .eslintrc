@@ -22,7 +22,9 @@
     "strict": 0,
     "babel/new-cap": 0,
     "babel/no-invalid-this": 1,
-    "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }]
+    "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }],
+    "react-hooks/rules-of-hooks": "error",
+    "react-hooks/exhaustive-deps": "warn"
   },
   "plugins": [
     "babel"

@@ -1,4 +1,4 @@
-FROM node:12.4.0
+FROM node:12.5.0-alpine
 
 # Create app directory
 WORKDIR /usr/src/app
@@ -15,7 +15,9 @@ RUN npm install
 # Bundle app source
 COPY . .
 
-RUN npm build
+ENV NODE_ENV=production
+
+RUN npm run-script build
 
 EXPOSE 3000
 CMD [ "npm", "start" ]

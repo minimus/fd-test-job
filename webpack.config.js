@@ -5,6 +5,7 @@ const nodeExternals = require('webpack-node-externals')
 // const capitalizeFirstLetter = (string) => string.charAt(0).toUpperCase() + string.slice(1);
 // const baseFontsStaticPath = '../fonts/AvenirLTS'
 const browserConfig = {
+  mode: 'production',
   entry: ['babel-polyfill', './src/client/client.js'],
   output: {
     path: `${__dirname}/public`,
