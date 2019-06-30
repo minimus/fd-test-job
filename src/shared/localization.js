@@ -1,18 +1,4 @@
-import React from 'react'
-import { hydrate } from 'react-dom'
-import { Provider } from 'react-redux'
-import { BrowserRouter as Router } from 'react-router-dom'
-import { LocalizeProvider, localizeReducer } from 'react-localize-redux'
-import ReactDOMServer from 'react-dom/server'
-import configStore from './configStore'
-import Application from '../shared/Application'
-import { getUserLocale } from '../shared/redux/modules/helpers'
-
-process.env.BROWSER = true
-
-const locale = getUserLocale()
-
-const localesInit = {
+export const localesInit = {
   languages: [
     { name: 'English', code: 'en' },
     { name: 'German', code: 'de' },
@@ -46,23 +32,5 @@ const localesInit = {
       ],
     },
   },
-  options: {
-    defaultLanguage: locale,
-    renderToStaticMarkup: ReactDOMServer.renderToStaticMarkup,
-  },
+  options: {},
 }
-
-const state = window.__PRELOADED_STATE__
-
-const store = configStore(state)
-
-hydrate(
-  <Provider store={store}>
-    <LocalizeProvider initialize={localesInit}>
-      <Router>
-        <Application />
-      </Router>
-    </LocalizeProvider>
-  </Provider>,
-  document.querySelector('#app'),
-)

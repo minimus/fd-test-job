@@ -1,10 +1,11 @@
 import React, { Component } from 'react'
 import propTypes from 'prop-types'
+import { Translate, withLocalize } from 'react-localize-redux'
 import {
   Map as LeafletMap, TileLayer, Marker, Popup,
 } from 'react-leaflet-universal'
 
-export default class Map extends Component {
+class Map extends Component {
   handleViewportChanged = (vp) => {
     const {
       history, viewportChanged, currentPosition,
@@ -19,11 +20,14 @@ export default class Map extends Component {
 
   render() {
     const {
-      position, currentPosition, locale, zoom, strings,
+      position: { latitude, longitude },
+      currentPosition: {
+        latitude: markLatitude,
+        longitude: markLongitude,
+      },
+      zoom,
     } = this.props
-    const { latitude, longitude } = position
-    const { latitude: markLatitude, longitude: markLongitude } = currentPosition
-    const { maps: { markerPosition } } = strings
+
     return (
       <div id="maps">
         <LeafletMap
@@ -31,9 +35,9 @@ export default class Map extends Component {
           zoom={zoom}
           maxZoom={10}
           attributionControl
-          zoomControl
           doubleClickZoom
           scrollWheelZoom
+          zoomControl={false}
           dragging
           animate
           easeLinearity={0.35}
@@ -45,7 +49,7 @@ export default class Map extends Component {
             attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
           />
           <Marker position={[markLatitude, markLongitude]}>
-            <Popup>{markerPosition}</Popup>
+            <Popup><Translate id="maps.markerPosition" /></Popup>
           </Marker>
         </LeafletMap>
       </div>
@@ -54,11 +58,11 @@ export default class Map extends Component {
 }
 
 Map.propTypes = {
-  locale: propTypes.string.isRequired,
   position: propTypes.objectOf.isRequired,
   currentPosition: propTypes.objectOf.isRequired,
   zoom: propTypes.objectOf.isRequired,
   viewportChanged: propTypes.func.isRequired,
   history: propTypes.objectOf.isRequired,
-  strings: propTypes.objectOf.isRequired,
 }
+
+export default withLocalize(Map)

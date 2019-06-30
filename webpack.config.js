@@ -51,8 +51,18 @@ const browserConfig = {
         use: [
           'style-loader',
           { loader: 'css-loader', options: { importLoaders: 1 } },
-          'postcss-loader',
-        ]
+          {
+            loader: 'postcss-loader',
+            options: {
+              plugins: [
+                autoprefixer(/*{
+                  browsers: ['ie >= 8', 'last 4 version'],
+                }*/),
+              ],
+              sourceMap: true,
+            },
+          },
+        ],
         // loader: ExtractTextPlugin.extract('css-loader!resolve-url-loader!less-loader')
         /*use: ExtractTextPlugin.extract({
           use: [

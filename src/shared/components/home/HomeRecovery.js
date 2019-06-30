@@ -1,25 +1,26 @@
 import React, { Component } from 'react'
 import propTypes from 'prop-types'
+import { Translate, withLocalize } from 'react-localize-redux'
 import LabeledInput from './LabeledInput'
 
-export default class HomeRecovery extends Component {
+// eslint-disable-next-line react/prefer-stateless-function
+class HomeRecovery extends Component {
   render() {
-    const {
-      strings: { recovery: strings }, username, trackName, passwordRecoverySent,
-    } = this.props
+    const { username, trackName, passwordRecoverySent } = this.props
     return (
       <div id="home-component-recovery">
-        <h1>{strings.header}</h1>
-        <LabeledInput handler={trackName} id="username" title={strings.email} value={username} />
-        <p>{strings.help}</p>
+        <h1><Translate id="recovery.header" /></h1>
+        <LabeledInput handler={trackName} id="username" value={username} />
+        <p><Translate id="recovery.help" /></p>
         <div className="login-buttons">
-          <input
+          <button
             id="send-request"
             className="sign-in-button"
             type="button"
-            value={strings.sendRequest}
             onClick={passwordRecoverySent}
-          />
+          >
+            <Translate id="recovery.sendRequest" />
+          </button>
         </div>
       </div>
     )
@@ -28,7 +29,8 @@ export default class HomeRecovery extends Component {
 
 HomeRecovery.propTypes = {
   username: propTypes.string.isRequired,
-  strings: propTypes.objectOf.isRequired,
   trackName: propTypes.func.isRequired,
   passwordRecoverySent: propTypes.func.isRequired,
 }
+
+export default withLocalize(HomeRecovery)

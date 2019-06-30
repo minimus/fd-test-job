@@ -85,7 +85,7 @@ export function getDefaultStrings(locale) {
         rememberMe: 'Erinnere dich an mich',
         signIn: 'Einloggen',
         signOut: 'Ausloggen',
-        forgotPass: 'Forgot Password?',
+        forgotPass: 'Passwort vergessen?',
       },
       recovery: {
         header: 'Passwort-Wiederherstellung',

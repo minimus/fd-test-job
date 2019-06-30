@@ -119,7 +119,6 @@ const initialState = {
     longitude: null,
   },
   zoom: 9,
-  strings: getDefaultStrings('en'),
   loggedIn: false,
 }
 

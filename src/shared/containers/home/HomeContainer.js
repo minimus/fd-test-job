@@ -11,6 +11,7 @@ import {
 
 class HomeContainer extends Component {
   componentDidMount() {
+    // eslint-disable-next-line react/destructuring-assignment
     this.props.changeUserPosition()
   }
 
@@ -33,7 +34,6 @@ const mapStateToProps = state => ({
   position: state.home.position,
   currentPosition: state.home.currentPosition,
   zoom: state.home.zoom,
-  strings: state.home.strings,
   username: state.home.username,
   password: state.home.password,
   rememberMe: state.home.rememberMe,
