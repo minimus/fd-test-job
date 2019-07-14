@@ -14,11 +14,11 @@
     "make_styles": "postcss src/shared/style.css -o public/css/style.css"
   },
   "dependencies": {
-    "@babel/cli": "^7.4.4",
-    "@babel/core": "^7.4.5",
-    "@babel/preset-env": "^7.4.5",
+    "@babel/cli": "^7.5.0",
+    "@babel/core": "^7.5.4",
+    "@babel/preset-env": "^7.5.4",
     "@babel/preset-react": "^7.0.0",
-    "@babel/plugin-proposal-export-default-from": "^7.2.0",
+    "@babel/plugin-proposal-export-default-from": "^7.5.2",
     "babel-preset-react-app": "^9.0.0",
     "@babel/register": "^7.4.4",
     "babel-loader": "^8.0.6",
@@ -49,7 +49,7 @@
     "react-leaflet-universal": "^2.1.0"
   },
   "devDependencies": {
-    "autoprefixer": "^9.6.0",
+    "autoprefixer": "^9.6.1",
     "babel-eslint": "^10.0.1",
     "css-loader": "^3.0.0",
     "cssnano": "^4.1.10",
